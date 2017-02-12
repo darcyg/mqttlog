@@ -1,2 +1,2 @@
-# mqqtlog
+# mqttlog
 the central repo

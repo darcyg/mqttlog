@@ -1,7 +1,9 @@
 import socket
 import time
 import paho.mqtt.client as mqtt
-from time import gmtime, strftime
+
+from datetime import datetime
+
 
 # global stuff
 logfilename = strftime("/home/pi/heizungslog_%Y-%m-%d_%H-%M-%S.log", gmtime())
@@ -23,20 +25,32 @@ def num(s):
         return 0
 
 def log(s):
-    actime = strftime("%Y-%m-%d %H:%M:%S", gmtime())
+    actime = datetime.now()
     with open('samplelogt.log','a') as myFile:
         myFile.write("# "+actime+" "+s+"\n")
 
 # The callback for when a PUBLISH message is received from the server.
 def on_message(client, userdata, msg):
     # separate the topic by / and aggregate it with . again
-    actime = strftime("%Y-%m-%d %H:%M:%S", gmtime())
+    actime = datetime.now()
     msg.topic = msg.topic.replace("/",".")
     if msg.topic[0] is not '$':
         with open(logfilename,'a') as myFile:
             myFile.write(actime+" "+msg.topic+" "+str(msg.payload)+"\n")
     print(msg.topic+"  "+ msg.payload)
     #send_metric(msg.topic, msg.payload)
+
+timetick = 0
+
+# get short timestamp
+# returns ms time since last timestamp
+def gettick()
+
+
+# produce new timestamp in file and remember the time for timetick
+def timestamp()
+
+
 
 def send_metric(name, value):
     sock = socket.socket()

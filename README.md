@@ -1,19 +1,11 @@
 # mqttlog
 the central repo
 
-### log file format
-
-Resolution ms
-
-    header bla
-    T2016-03-20 0:12:23:340
-    N 1 Sensor.blubb
-    1 150 23.5
-    1 1520 49.5
-
-Format rules:
--------------
-0. Field separator is ' '
+Log file format rules:
+----------------------
+1. if line starts with '#' it is a comment
+    - only fill line comments.
+    - no '#' elsewhere will be interpreted
 1. if line starts with a 'T' it is a time sync point
     - 'T'
     - no space
@@ -28,3 +20,11 @@ Format rules:
     - ID of sensor
     - time [ms] after last sync point
     - value [string]
+
+Example:
+
+    #header bla
+    T2016-03-20 0:12:23:340
+    N 1 Sensor.blubb
+    1 150 23.5
+    1 1520 49.5

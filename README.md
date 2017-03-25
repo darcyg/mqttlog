@@ -6,7 +6,7 @@ Log file format rules:
 1. if line starts with '#' it is a comment
     - only full line comments.
     - no '#' except line start will be interpreted
-1. if line starts with a 'T' it is a time sync point
+1. if line starts with a 'T' it is a time sync point. All subsequent data are based on this time.
     - 'T'
     - no space
     - Time in YYYY-MM-DD hh:mm:ss:mmm (with space between date & time)
@@ -19,7 +19,7 @@ Log file format rules:
 1. If line starts with a number, it is a data point with the format:
     - ID of sensor [INT string]
     - space
-    - time [ms] after last sync point
+    - time [ms] relative to the last sync point
     - value [string] until end of line
 1. Non conformal lines throw an error.
 1. time [ms] should be kept short (<6 digits) 
@@ -28,8 +28,10 @@ Log file format rules:
 
 
 stuff to think about:
-- use cs or ds (100th or 10th of a second) as logging timebase
-- 
+
+- use cs or ds (100th or 10th of a second or full seconds) as logging timebase
+- how to avoid excessive time syncs
+- is timestamp somewhat compressible using its monotonic character?
 
 Example:
 

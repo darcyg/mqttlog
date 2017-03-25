@@ -1,30 +1,40 @@
 # mqttlog
-the central repo
+Logging MQTT data and plotting it
 
 Log file format rules:
 ----------------------
 1. if line starts with '#' it is a comment
-    - only fill line comments.
-    - no '#' elsewhere will be interpreted
+    - only full line comments.
+    - no '#' except line start will be interpreted
 1. if line starts with a 'T' it is a time sync point
     - 'T'
     - no space
-    - Time in YYYY-MM-DD hh:mm:ss:mmm
+    - Time in YYYY-MM-DD hh:mm:ss:mmm (with space between date & time)
 1. if line starts with 'N', it is a Name line
     - 'N'
     - no space
-    - ID of sensor
+    - ID of sensor [INT string]
     - space
-    - sensor name [string]
+    - sensor name [string] until end of line
 1. If line starts with a number, it is a data point with the format:
-    - ID of sensor
+    - ID of sensor [INT string]
+    - space
     - time [ms] after last sync point
-    - value [string]
+    - value [string] until end of line
+1. Non conformal lines throw an error.
+1. time [ms] should be kept short (<6 digits) 
+    * SW must be able to handle 32 bit 2^32 (49 days)
+    * some value to be transmitted is expected in 49 days.
+
+
+stuff to think about:
+- use cs or ds (100th or 10th of a second) as logging timebase
+- 
 
 Example:
 
     #header bla
     T2016-03-20 0:12:23:340
-    N 1 Sensor.blubb
+    N1 Sensor.blubb
     1 150 23.5
     1 1520 49.5

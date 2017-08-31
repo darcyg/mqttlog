@@ -40,3 +40,35 @@ Example:
     N1 Sensor.blubb
     1 150 23.5
     1 1520 49.5
+
+Database structure
+
+Example of a Datastructure on a mysql Db (sensor -- 1:n -- data)
+
+stuff to think about:
+
+- add category to sensor table e.g. weather outside, solar, power, etc.
+
+CREATE TABLE `sensor` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `order` int(11) NOT NULL, 
+  `description` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `unit` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `mqtt_topic` varchar(256) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `data` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `sensor_id` int(11) NOT NULL,
+  `datetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `value` float NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `sensor_id` (`sensor_id`),
+  CONSTRAINT `data_ibfk_1` FOREIGN KEY (`sensor_id`) REFERENCES `sensor` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+Data retrievel for e.g. line chart:
+
+Iterate over the sensors and retrieve for a sensor_id with a date range the data-value.
+Put everything on a line chart together (e.g. multiple xy line chart, http://c3js.org/samples/simple_xy_multiple.html).

@@ -2,8 +2,6 @@
 # /brief		compiler Settings
 # /description 	toolchain settings
 # /use			for private use only!
-# /author		schmied
-# /date			Jan 17, 2014
 #############################################################
 
 #################### changelog ##############################

@@ -2,13 +2,6 @@
 # /brief		makefile for building a static library
 # /description 	toolchain settings
 # /use			for private use only!
-# /author		schmied
-# /date			Oct 16, 2014				
-#############################################################
-
-#################### changelog ##############################
-# date		author		comment	
-# Oct 16, 2014 	schmied	- creation of file
 #############################################################
 
 #############################################################
@@ -16,7 +9,7 @@
 #############################################################
 rwildcard=$(wildcard $1$2) $(foreach d,$(wildcard $1*),$(call rwildcard,$d/,$2))
 
-GCC_SETTINGS:= $(call rwildcard,../../../bld*,gcc_settings.inc)
+GCC_SETTINGS:= $(call rwildcard,../../_bld*,gcc_settings.inc)
 
 #############################################################
 # Include for compiler settings and project specific files
@@ -51,6 +44,8 @@ vpath %  $(SOURCE_PATH)
 #############################################################
 # Main build targets
 #############################################################
+test:
+	@echo $(GCC_SETTINGS)
 
 all: $(ARCHIVE_DIR)/$(target)_g.a $(ARCHIVE_DIR)/$(target).so
 	@echo ---------------------------------------

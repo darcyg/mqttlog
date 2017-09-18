@@ -2,13 +2,6 @@
 # /brief		dependency file for a single project
 # /description 	toolchain settings
 # /use			for private use only!
-# /author		schmied
-# /date			Oct 16, 2014				
-#############################################################
-
-#################### changelog ##############################
-# date		author		comment	
-# Oct 16, 2014 	schmied	- creation of file
 #############################################################
 
 #############################################################

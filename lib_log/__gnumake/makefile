@@ -5,16 +5,12 @@
 # /date			Oct 16, 2014				
 #############################################################
 
-#################### changelog ##############################
-# date		author		comment	
-#############################################################
-
 #############################################################
 # output directory for objects
 #############################################################
 rwildcard=$(wildcard $1$2) $(foreach d,$(wildcard $1*),$(call rwildcard,$d/,$2))
 
-GCC_SETTINGS:= $(call rwildcard,../../../bld*,gcc_settings.inc)
+GCC_SETTINGS:= $(call rwildcard,../../_bld*,gcc_settings.inc)
 
 #############################################################
 # Include for compiler settings and project specific files

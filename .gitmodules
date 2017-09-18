@@ -1,0 +1,3 @@
+[submodule "lib_mqtt_adapter/sh_lib_mqtt_adapter/sh_lib_mosquitto"]
+	path = lib_mqtt_adapter/sh_lib_mqtt_adapter/sh_lib_mosquitto
+	url = ../../eclipse/mosquitto.git

@@ -1,0 +1,19 @@
+#Some of these are related to eclipse. So i keep them out of my repo
+.dep/
+.settings/
+.metadata
+#sh*
+.directory
+*/__gnumake/x86/*
+*/__cmake/*
+# make and build files
+*.lst
+*.o
+*.a
+*.eep
+*.lss
+*.map
+*.sym
+*.elf
+*.hex
+

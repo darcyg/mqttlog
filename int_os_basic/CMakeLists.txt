@@ -12,7 +12,7 @@ add_library(${PROJECT_NAME} SHARED lib_os_basic ) # $<TARGET_OBJECTS:lib_thread>
   
 
 target_link_libraries(${PROJECT_NAME} PUBLIC ${TREADING_LIBS} itf_lib_thread itf_lib_clock itf_lib_convention )
-target_link_libraries(${PROJECT_NAME} PRIVATE "-Wl,--whole-archive" lib_list lib_clock lib_thread lib_log "-Wl,--no-whole-archive")
+target_link_libraries(${PROJECT_NAME} PRIVATE "-Wl,--whole-archive" lib_clock lib_thread lib_log "-Wl,--no-whole-archive")
 target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_INCLUDE_HEADERS_1} ${lib_log_SOURCE_DIR} ${itf_lib_convention_SOURCE_DIR})
 target_compile_definitions(${PROJECT_NAME} PUBLIC ${PROJECT_COMPILE_DEF_1})
 

@@ -1,0 +1,5 @@
+project(test_modules)
+
+
+add_subdirectory(lib_test_framework_EMBUNIT/sh_lib_test_framework_EMBUNIT)
+add_subdirectory(test_lib_thread)

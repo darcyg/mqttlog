@@ -1,3 +1,6 @@
 [submodule "int_comm/lib_mosquitto/sh_lib_mosquitto"]
 	path = int_comm/lib_mosquitto/sh_lib_mosquitto
 	url = ../../eclipse/mosquitto.git
+[submodule "sup_tools/app_tcf_agent"]
+	path = sup_tools/app_tcf_agent
+	url = ../../eclipse/tcf.agent.git
